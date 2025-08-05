@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+</head>
+<body>
+  <a-scene mindar-image="imageTargetSrc: ./targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-assets>
+      <!-- ALL 32 AUDIO FILES (Replace with your MP3/WAV files) -->
+      <audio id="sound0" src="audios/3 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound1" src="audios/4 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound2" src="audios/5 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound3" src="audios/6 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound4" src="audios/7 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound5" src="audios/8 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound6" src="audios/9 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound7" src="audios/10 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound8" src="audios/11 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound9" src="audios/12 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound10" src="audios/13 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound11" src="audios/14 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound12" src="audios/15 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound13" src="audios/16 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound14" src="audios/17 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound15" src="audios/18 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound16" src="audios/19 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound17" src="audios/20 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound18" src="audios/21 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound19" src="audios/22 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound20" src="audios/23 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound21" src="audios/24 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound22" src="audios/25 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound23" src="audios/26 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound24" src="audios/27 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound25" src="audios/28 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound26" src="audios/29 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound27" src="audios/30 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound28" src="audios/31 CASTELLANO.mp3" preload="auto"></audio>
+      <audio id="sound29" src="audios/32 CASTELLANO.mp3" preload="auto"></audio>
+     
+    </a-assets>
+
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+    <!-- ALL 32 TARGETS (0 to 31) -->
+    <a-entity mindar-image-target="targetIndex: 0"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 1"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 2"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 3"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 4"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 5"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 6"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 7"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 8"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 9"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 10"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 11"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 12"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 13"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 14"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 15"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 16"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 17"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 18"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 19"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 20"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 21"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 22"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 23"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 24"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 25"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 26"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 27"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 28"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 29"></a-entity>
+    
+  </a-scene>
+
+  <script>
+    const scene = document.querySelector('a-scene');
+    
+    // Play audio when marker is found
+    scene.addEventListener('targetFound', (event) => {
+      const targetIndex = event.target.getAttribute('mindar-image-target').targetIndex;
+      const audio = document.getElementById(`sound${targetIndex}`);
+      audio.play();
+    });
+    
+    // Stop audio when marker is lost
+    scene.addEventListener('targetLost', (event) => {
+      const targetIndex = event.target.getAttribute('mindar-image-target').targetIndex;
+      const audio = document.getElementById(`sound${targetIndex}`);
+      audio.pause();
+      audio.currentTime = 0;
+    });
+  </script>
+</body>
+</html>
